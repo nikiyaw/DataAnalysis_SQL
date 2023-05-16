@@ -5,6 +5,7 @@
 
 ## Process
 ### (your step 1)
+
 ### (your step 2)
 
 ## Results
@@ -12,6 +13,9 @@
 
 ## Challenges 
 (discuss challenges you faced in the project)
+1. Lack on data and information in multiple columns, especially in the all_sessions table. 
 
 ## Future Goals
 (what would you do if you had more time?)
+1. Organize all_sessions table into multiple tables. 
+2. 
