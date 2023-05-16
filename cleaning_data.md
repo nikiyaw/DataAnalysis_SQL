@@ -1,35 +1,24 @@
 What issues will you address by cleaning the data?
 
+1. Show all duplicated rows in all_sessions. 
 
+Query: 
+--List all rows of duplicated data (911 rows)
 
+WITH duplicate_rows AS (
+		(SELECT *,
+    		ROW_NUMBER() OVER ( 
+        	PARTITION BY fullvisitorid 
+        	ORDER BY fullvisitorid
+        ) AS Row_Number
+			FROM all_sessions)) 
+SELECT * FROM duplicate_rows WHERE Row_Number <> 1
 
+2. Replace inconsistent data values in country, city columns with NULL. 
 
-Queries:
-Below, provide the SQL queries you used to clean your data.
+Query:
+--'(not set)' OR 'not available in demo dataset' -> NULL 
 
-
-Methods to refer to:
-1. remove unwanted/irrelevant observations ()
-2. remove duplicate data
-3. fix structural erros - fixing typos ()
-4. ensure accurate datatypes ()
-5. address missing values ()
-6. deal with outliers
-7. standardize/normalize data
-8. validate data
-
-Plan:
-1. Went through each tables and see what which table represents 
- 
-TABLE: all_sessions
--get rid of duplicate date
--find unique id (set as PK)
-1. time  
-- make sense of what the numbers meant
-- change data type 
-- replace 0 with median?
-2. country & city 
-- replace '(not set)' OR 'not available in demo dataset' with NULL values
 SELECT city,
 CASE
 	WHEN city = '(not set)' THEN NULL
@@ -37,20 +26,51 @@ CASE
 	ELSE city
 END AS modified_city
 FROM all_sessions
-3. timeonsite
-- make sense of the numbers
-- change data type
-- what to do with NULL
-4. productprice
-- change to integer & divide by??
-5. v2productname
-- get rid of Google, Youtube, Android in the front
-6. v2productcategory
-- get rid of Home in the front
-7. productvariant 
-- all to NULL
-8. pagetitle
-- tidy it up
+
+SELECT country,
+CASE
+	WHEN country = '(not set)' THEN NULL
+	ELSE country
+END AS modified_country
+FROM all_sessions
+
+3. Address missing values in the timeonsite column. 
+
+Query:
+--Replace null values with the median value
+
+SELECT timeonsite, 
+	COALESCE(timeonsite, 
+			 (SELECT PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY timeonsite) FROM all_sessions)) AS timeonsite
+FROM all_sessions
+
+4. Fix the productprice column. 
+
+Query: 
+--Divide the price by 1000000
+
+SELECT productprice, 
+	CAST((productprice / 1000000.) AS DECIMAL (10,2))	
+FROM all_sessions
+
+5. Remove redundant observations in v2productname and v2productcategory columns. 
+
+Query: 
+--Got rid of repetitive imformation
+SELECT v2productname,  
+	CASE WHEN v2productname like 'Google%' THEN REPLACE(v2productname, 'Google', '')
+		WHEN v2productname like 'YouTube%' THEN REPLACE(v2productname, 'YouTube', '')
+		WHEN v2productname like 'Android%' THEN REPLACE(v2productname, 'Android', '')
+		ELSE v2productname END
+		AS new_v2productname
+FROM all_sessions
+
+SELECT v2productcategory,  
+	REPLACE(v2productcategory, 'Home/', '') AS new_v2productcategory
+FROM all_sessions
+
+
+
 extra: relationship between productsku & v2productcategory
 - numbers and certain G code produces '(not set)'
 
