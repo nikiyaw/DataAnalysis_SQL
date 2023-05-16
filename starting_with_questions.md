@@ -7,7 +7,6 @@ SQL Queries:
 
 --from all_sessions: country, city, productprice**, productsku (key)
 --from sales_report: productsku (key), total_ordered 
---INNER join to find the overlapping rows in both tables
 
 SELECT 
 	alls.city, alls.country,
@@ -39,17 +38,17 @@ Answer:
 
 SQL Queries:
 
-select 
-	country,
-	v2productcategory, 
-	count(*) as count 
-from all_sessions
---where country = 'United States'
-group by country, v2productcategory
-having count(*)>1
-order by count desc
+--from sales_report: productsku(key), total_ordered
+--from all_sessions: productsku(key), v2productcategory, city, country
 
-*get only one row for each country and city
+SELECT 
+	alls.country, alls.city, alls.v2productcategory, 
+	sr.total_ordered
+FROM sales_report sr
+INNER JOIN all_sessions alls
+ON sr.productsku = alls.productsku
+GROUP BY alls.country, alls.city, alls.v2productcategory, sr.total_ordered
+ORDER BY sr.total_ordered DESC
 
 Answer:
 
@@ -59,18 +58,14 @@ Answer:
 
 SQL Queries:
 
-select 
-	country,
-	v2productname, 
-	count(*) as count 
-from all_sessions
---where country = 'United States'
-group by country, v2productname
-having count(*)>1
-order by count desc
-
-*get only one row for each country and city
-
+SELECT 
+	alls.country, alls.city, alls.v2productname, 
+	sr.total_ordered
+FROM sales_report sr
+INNER JOIN all_sessions alls
+ON sr.productsku = alls.productsku
+GROUP BY alls.country, alls.city, alls.v2productname, sr.total_ordered
+ORDER BY sr.total_ordered DESC
 Answer:
 
 
@@ -78,9 +73,22 @@ Answer:
 
 SQL Queries:
 
-
+Same as Question 1??
 
 Answer:
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
