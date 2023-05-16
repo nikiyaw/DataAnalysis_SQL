@@ -23,7 +23,7 @@ Plan:
  
 TABLE: all_sessions
 -get rid of duplicate date
--find unique id
+-find unique id (set as PK)
 1. time  
 - make sense of what the numbers meant
 - change data type 
