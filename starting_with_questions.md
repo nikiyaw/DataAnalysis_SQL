@@ -5,8 +5,8 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 SQL Queries:
 
---from all_sessions: country, city, productprice**, productsku (key)
---from sales_report: productsku (key), total_ordered 
+--from all_sessions: country, city, productprice**, productsku(PK)
+--from sales_report: productsku(PK), total_ordered 
 
 SELECT 
 	alls.city, alls.country,
