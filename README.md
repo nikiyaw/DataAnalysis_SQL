@@ -1,7 +1,7 @@
 # Final-Project-Transforming-and-Analyzing-Data-with-SQL
 
 ## Project/Goals
-The main goal of this project is to study and identity trends and obtain useful information regarding customers spending habits in certain websites. From a business perspective, it is crucial to understand where the customers are, what products are popular, how much are the customers are spending etc. With this information in hand, companies are able to tailor and target certain ucustomer groups more efficiently. 
+The main goal of this project is to study and identity trends and obtain useful information regarding customers spending habits in certain websites. From a business perspective, it is crucial to understand where the customers are, what products are popular, how much are the customers are spending etc. With this information in hand, companies are able to tailor and target certain customer groups more efficiently. 
 
 
 ## Process
@@ -22,7 +22,7 @@ The main goal of this project is to study and identity trends and obtain useful 
 ## Results (picked 3)
 1. The data shows that the United States brings in the largest amount of revenue compare to other countries.
 2. Organic Search is the most popular way for customers to assess the website and it also brings in the highest revenue. 
-3. In October 2016 and May 2017, there are significant dips in the revenue generated. We can further investigate these two outliers and find out the reason behind the decrease in sales.  
+3. The sales has been similar constant throughout the year, ranging between 30,000+ dollars to 45,000+ dollars per month.  
 
 ## Challenges 
 1. Lack of data in multiple columns. 
