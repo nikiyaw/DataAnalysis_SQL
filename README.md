@@ -25,3 +25,5 @@ AND MORE.
 1. Organize all_sessions table into multiple tables. 
 2. Rename the tables and columns into something more intuitive and easy to understand. 
 3. Remove overlapping information between tables. 
+
+![Screenshot](schema.png)
