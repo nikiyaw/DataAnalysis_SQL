@@ -15,7 +15,7 @@ By obtaining the name and ordered amount from sales_report and stock level from 
 
 
 Question 2: 
-Which way of channelgrouping brings is the most popular in the United States? How much total revenue each channels bring in? 
+Which way of channelgrouping is the most popular in the United States? How much total revenue each channel bringS in? 
 
 SQL Queries:
 SELECT channelgrouping, count(*) AS ReferralAmount, (SUM(productprice)/1000000) AS TotalRevenue
