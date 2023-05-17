@@ -69,28 +69,3 @@ SELECT v2productcategory,
 	REPLACE(v2productcategory, 'Home/', '') AS new_v2productcategory
 FROM all_sessions
 
-
-
-extra: relationship between productsku & v2productcategory
-- numbers and certain G code produces '(not set)'
-
-TABLE: products
--relationship between these 3 
-select sku, orderedquantity, stocklevel from products 
---where sku like '9%'
---where orderedquantity = 0 and stocklevel = 0
-
-TABLE: sales_by_sku
--shows distinct products with total_ordered value
-- why show zeros?
-
-TABLE: sales_report
-- starts with 9 and some G-code are all 0
-select * from sales_report order by stocklevel
-
-TABLE: analytics
-- get rid of duplicate data
-- find unique id 
-
-
-
