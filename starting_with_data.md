@@ -33,13 +33,14 @@ Which month or year has the highest sales? How much orders are there? Is there a
 
 SQL Queries:
 SELECT 
-	EXTRACT(year FROM date) AS purchased_year,
+	EXTRACT(year FROM date) AS purchased_year, 
 	EXTRACT(month FROM date) AS purchased_month,
-	COUNT(*) AS count
-FROM all_sessions
-GROUP BY purchased_year, purchased_month
+	COUNT(*) AS visit_website_count,
+	(SUM(productprice)/1000000) AS TotalRevenue
+FROM all_sessions 
+GROUP BY purchased_year, purchased_month 
 ORDER BY purchased_year, purchased_month
 
 Answer:
-August 2016 seems to hold the highest sales whereas August 2017 has the lowest sales. Sales have been pretty average throughout the year. 
+May 2017 and OCtober 2016 seem to have a significant dip in revenue generated (outliers). We can definitely look into that and find out the reason behind it. 
 
