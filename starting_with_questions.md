@@ -5,7 +5,7 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 Answer:
 United States has the highest level of transaction revenues on the site. 
-As for cities, the option 'not available in demo dataset' has the highest but it might be a combination of several unknown cities so there is no way of knowning.  
+As for cities, the option 'not available in demo dataset' has the highest but it might be a combination of several unknown cities so there is no way of knowning. 
 The available information indicates that Mountain View is the city with the highest level of transaction revenue.
 
 SQL Queries:
@@ -24,23 +24,30 @@ ORDER BY SUM(sr.total_ordered * alls.productprice) DESC
 
 **Question 2: What is the average number of products ordered from visitors in each city and country?**
 
+Answer: 
+I choose to disregard the city due to lack of data. The query below made a list that includes all the products and the total average based on each country (alphabetically). 
 
 SQL Queries:
+--from sales_report: productsku(key), total_ordered
+--from all_sessions: productsku(key), v2productname, country
 
-
-
-Answer:
+SELECT 
+	alls.country, alls.v2productname, sr.total_ordered,
+       AVG(sr.total_ordered) OVER
+         (PARTITION BY alls.country) AS running_total
+  FROM sales_report sr
+  INNER JOIN all_sessions alls
+	ON sr.productsku = alls.productsku
 
 
 **Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?**
 
 Answer:
-I came up with 4 different queries. I choose to ignore the cities and only focus on the countries because there are plenty of missing datas in the city column.
-The numbers indicate that office supplies seem to be the most popular category followed by drinkwares and apparels. This trend seems to be applicable to most of the countries.
+I came up with 4 different queries (trying out different ways to look at data). I choose to ignore the cities and only focus on the countries because there are plenty of missing datas in the city column. The numbers indicate that office supplies seem to be the most popular category followed by drinkwares and apparels. This trend seems to be applicable to most of the countries.
 
 SQL Queries:
 --from sales_report: productsku(key), total_ordered
---from all_sessions: productsku(key), v2productcategory, city, country
+--from all_sessions: productsku(key), v2productcategory, country
 
 The first query shows the highest amount of product categories that are ordered and the countries that are ordering them.  
 
@@ -96,7 +103,7 @@ Similar to Q3, but now looking at products, the query below shows the most (rank
 
 SQL Queries:
 --from sales_report: productsku(key), total_ordered
---from all_sessions: productsku(key), v2productname, city, country
+--from all_sessions: productsku(key), v2productname, country
 
 WITH no_1 AS (
 	(SELECT 
@@ -111,7 +118,7 @@ SELECT * FROM no_1 WHERE running_total = 1
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
 Answer: 
-United States seems to be bringing in the highest revenue total amongst all the other countries. I choose to only focus on the country because there are significant missing data in the city column. 
+I choose to only focus on the country because there are significant missing data in the city column. United States seems to be bringing in the highest revenue total amongst all the other countries by a huge amount of approximately 5.3 million dollars. United Kingdom takes the second place by producing a revenue of a quarter dollars. Canada takes the third place by making around 170,000 dollars. 
 
 SQL Queries:
 --from all_sessions: productsku(PK), country, city, productprice
