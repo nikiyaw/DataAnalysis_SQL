@@ -1,24 +1,34 @@
 # Final-Project-Transforming-and-Analyzing-Data-with-SQL
 
 ## Project/Goals
-The goal is to clean the messy data collected from a website to our best extent and investigate trends through the semi-clean data. 
+The main goal of this project is to study and identity trends and obtain useful information regarding customers spending habits in certain websites. From a business perspective, it is crucial to understand where the customers are, what products are popular, how much are the customers are spending etc. With this information in hand, companies are able to tailor and target certain ucustomer groups more efficiently. 
+
 
 ## Process
 1. Start off by scheming through different tables and make sense of the bigger picture.
-3. Start with the data cleaning process. 
-4. Identify trends from the clean data. 
-5. Apply tailored queries to obtain information and answer the question sheet. 
-6. Identity questions that can be answered using the data available data. 
+- each table provides a piece of the puzzle that forms the bigger picture
 
-## Results
+2. Start with the data cleaning process. 
+- assign suitable data types (to analyze data easier)
+- remove duplicated/redundant data
+- handle missing data (need to make assumptions -> decreases credibility)
+
+3. Start asking questions and identify trends from the semi-clean data. 
+- look at different variables and see if there is a relationship between them (time of year vs. spending value)
+* this is where we return to the bigger picture
+* what are the important and useful information that needs to be extracted
+
+4. Note down future improvements that can be implemented to better the accuracy of our data. 
+- suggestion on how to proceed in future projects 
+
+## Results (picked 3)
 1. The data shows that the United States brings in the largest amount of revenue compare to other countries.
-2. Different queries also help identify the most popular items and product categories in each country. 
-3. By looking at the date and revenue columns, there are no obvious relationhips between the two.
-AND MORE. 
+2. Organic Search is the most popular way for customers to assess the website and it also brings in the highest revenue. 
+3. Assuming that customers would spend more money on holiday seasons, turns out that is not the case. The spending habit seems to average out all year long. 
 
 ## Challenges 
 1. Lack of data in multiple columns. 
-2. Inconsistent data types in some columns
+2. Inconsistent data types in some columns.
 3. Redundant columns that doesn't provide any information. 
 
 ## Future Goals
