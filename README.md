@@ -1,21 +1,27 @@
 # Final-Project-Transforming-and-Analyzing-Data-with-SQL
 
 ## Project/Goals
-(fill in your description and goals here)
+The goal is to clean the messy data collected from a website to our best extent and investigate trends through the semi-clean data. 
 
 ## Process
-### (your step 1)
-
-### (your step 2)
+1. Start off by scheming through different tables and make sense of the bigger picture.
+3. Start with the data cleaning process. 
+4. Identify trends from the clean data. 
+5. Apply tailored queries to obtain information and answer the question sheet. 
+6. Identity questions that can be answered using the data available data. 
 
 ## Results
-(fill in what you discovered this data could tell you and how you used the data to answer those questions)
+1. The data shows that the United States brings in the largest amount of revenue compare to other countries.
+2. Different queries also help identify the most popular items and product categories in each country. 
+3. By looking at the date and revenue columns, there are no obvious relationhips between the two.
+AND MORE. 
 
 ## Challenges 
-(discuss challenges you faced in the project)
-1. Lack on data and information in multiple columns, especially in the all_sessions table. 
+1. Lack of data in multiple columns. 
+2. Inconsistent data types in some columns
+3. Redundant columns that doesn't provide any information. 
 
 ## Future Goals
-(what would you do if you had more time?)
 1. Organize all_sessions table into multiple tables. 
-2. 
+2. Rename the tables and columns into something more intuitive and easy to understand. 
+3. Remove overlapping information between tables. 
