@@ -26,4 +26,4 @@ AND MORE.
 2. Rename the tables and columns into something more intuitive and easy to understand. 
 3. Remove overlapping information between tables. 
 
-![Screenshot](schema.png)
+![schema](https://github.com/nikiyaw/SQL-Project/assets/129553207/71fcfda3-8066-4d85-8c33-070a373f39ec)
