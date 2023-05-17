@@ -13,10 +13,8 @@ The main goal of this project is to study and identity trends and obtain useful 
 - remove duplicated/redundant data
 - handle missing data (need to make assumptions -> decreases credibility)
 
-3. Start asking questions and identify trends from the semi-clean data. 
+3. Start asking questions and identify trends from the semi-clean data. (Keep bigger picture in mind and ask the right questions to extract important and useful information)
 - look at different variables and see if there is a relationship between them (time of year vs. spending value)
-* this is where we return to the bigger picture
-* what are the important and useful information that needs to be extracted
 
 4. Note down future improvements that can be implemented to better the accuracy of our data. 
 - suggestion on how to proceed in future projects 
@@ -24,7 +22,7 @@ The main goal of this project is to study and identity trends and obtain useful 
 ## Results (picked 3)
 1. The data shows that the United States brings in the largest amount of revenue compare to other countries.
 2. Organic Search is the most popular way for customers to assess the website and it also brings in the highest revenue. 
-3. Assuming that customers would spend more money on holiday seasons, turns out that is not the case. The spending habit seems to average out all year long. 
+3. In October 2016 and May 2017, there are significant dips in the revenue generated. We can further investigate these two outliers and find out the reason behind the decrease in sales.  
 
 ## Challenges 
 1. Lack of data in multiple columns. 
