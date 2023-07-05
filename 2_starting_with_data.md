@@ -1,4 +1,3 @@
-# Formulate questions that can be answered using the data available. 
 
 ## Question 1: Are there any products that are in shortage (ordered amount is larger than stock level)? If so, how much more should we order to keep up with the orders? 
 
