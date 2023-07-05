@@ -1,9 +1,8 @@
-What issues will you address by cleaning the data?
+## What are the data cleaning steps taken?
 
-1. Show all duplicated rows in all_sessions. 
---List all rows of duplicated data (911 rows)
+# 1. Check for duplicated rows in all_sessions. 
 
-Query:
+
 WITH duplicate_rows AS (
 		(SELECT *,
     		ROW_NUMBER() OVER ( 
@@ -13,10 +12,10 @@ WITH duplicate_rows AS (
 			FROM all_sessions)) 
 SELECT * FROM duplicate_rows WHERE Row_Number <> 1
 
-2. Replace inconsistent data values in country, city columns with NULL. 
---'(not set)' OR 'not available in demo dataset' -> NULL 
 
-Query:
+# 2. Replace inconsistent data values in country, city columns with NULL.  
+
+
 SELECT city,
 CASE
 	WHEN city = '(not set)' THEN NULL
@@ -32,27 +31,27 @@ CASE
 END AS modified_country
 FROM all_sessions
 
-3. Address missing values in the timeonsite column. 
---Replace null values with the median value
 
-Query:
+# 3. Address missing values by replacing null values with median value in the timeonsite column. 
+
+
 SELECT timeonsite, 
 	COALESCE(timeonsite, 
 			 (SELECT PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY timeonsite) FROM all_sessions)) AS timeonsite
 FROM all_sessions
 
-4. Fix the productprice column. 
---Divide the price by 1000000
 
-Query:
+# 4. Fix the productprice column by diving price by 1000000 (in millions). 
+
+
 SELECT productprice, 
 	CAST((productprice / 1000000.) AS DECIMAL (10,2))	
 FROM all_sessions
 
-5. Remove redundant observations in v2productname and v2productcategory columns. 
---Got rid of repetitive imformation
 
-Query:
+# 5. Remove redundant observations in v2productname and v2productcategory columns. 
+
+
 SELECT v2productname,  
 	CASE WHEN v2productname like 'Google%' THEN REPLACE(v2productname, 'Google', '')
 		WHEN v2productname like 'YouTube%' THEN REPLACE(v2productname, 'YouTube', '')
