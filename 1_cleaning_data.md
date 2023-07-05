@@ -1,6 +1,6 @@
-## What are the data cleaning steps taken?
+# What are the data cleaning steps taken?
 
-# 1. Check for duplicated rows in all_sessions. 
+## 1. Check for duplicated rows in all_sessions. 
 
 
 WITH duplicate_rows AS (
@@ -13,7 +13,7 @@ WITH duplicate_rows AS (
 SELECT * FROM duplicate_rows WHERE Row_Number <> 1
 
 
-# 2. Replace inconsistent data values in country, city columns with NULL.  
+## 2. Replace inconsistent data values in country, city columns with NULL.  
 
 
 SELECT city,
@@ -32,7 +32,7 @@ END AS modified_country
 FROM all_sessions
 
 
-# 3. Address missing values by replacing null values with median value in the timeonsite column. 
+## 3. Address missing values by replacing null values with median value in the timeonsite column. 
 
 
 SELECT timeonsite, 
@@ -41,7 +41,7 @@ SELECT timeonsite,
 FROM all_sessions
 
 
-# 4. Fix the productprice column by diving price by 1000000 (in millions). 
+## 4. Fix the productprice column by diving price by 1000000 (in millions). 
 
 
 SELECT productprice, 
@@ -49,7 +49,7 @@ SELECT productprice,
 FROM all_sessions
 
 
-# 5. Remove redundant observations in v2productname and v2productcategory columns. 
+## 5. Remove redundant observations in v2productname and v2productcategory columns. 
 
 
 SELECT v2productname,  
