@@ -1,7 +1,8 @@
-Question 1: 
-Are there any products that are in shortage (ordered amount is larger than stock level)? If so, how much more should we order to keep up with the orders? 
+# Formulate questions that can be answered using the data available. 
 
-SQL Queries:
+## Question 1: Are there any products that are in shortage (ordered amount is larger than stock level)? If so, how much more should we order to keep up with the orders? 
+
+
 SELECT
 	sr.name, sr.productsku, sr.total_ordered, p.stocklevel, 
 	(sr.total_ordered - p.stocklevel) AS AmountNeeded
@@ -11,13 +12,12 @@ INNER JOIN products p
 WHERE sr.total_ordered > p.stocklevel
 
 Answer: 
-By obtaining the name and ordered amount from sales_report and stock level from products, we can use an inner join to find the overlapping cases. There are 2 cases where we need to order more to keep up with the orders. I added a column to indicate the amount that is needed for each item. 
+By obtaining the name and ordered amount from sales_report and stock level from products, we can use an inner join to find the overlapping cases. There are 2 cases where we need to order more to keep up with the orders. An additional column is added to indicate the amount that is needed for each item. 
 
 
-Question 2: 
-Which way of channelgrouping is the most popular in the United States? How much total revenue each channel bringS in? 
+## Question 2: Which way of channelgrouping is the most popular in the United States? How much total revenue each channel brings in? 
 
-SQL Queries:
+
 SELECT channelgrouping, count(*) AS ReferralAmount, (SUM(productprice)/1000000) AS TotalRevenue
 FROM all_sessions
 WHERE country = 'United States'
@@ -28,10 +28,9 @@ Answer:
 Organic Search is the most common method in accessing the site. It also brings in the largest revenue when compare to other channels. 
 
 
-Question 3: 
-Which month or year has the highest sales? How much orders are there? Is there a pattern? 
+## Question 3: Which month or year has the highest sales? How much orders are there? Is there a pattern? 
 
-SQL Queries:
+
 SELECT 
 	EXTRACT(year FROM date) AS purchased_year, 
 	EXTRACT(month FROM date) AS purchased_month,
